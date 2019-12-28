@@ -47,7 +47,7 @@ namespace SellAuto.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutColor(Guid id, Color color)
         {
-            if (id != color.IdСolor)
+            if (id != color.IdColor)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace SellAuto.Controllers
             _context.Color.Add(color);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetColor", new { id = color.IdСolor }, color);
+            return CreatedAtAction("GetColor", new { id = color.IdColor }, color);
         }
 
         // DELETE: api/Colors/5
@@ -103,7 +103,7 @@ namespace SellAuto.Controllers
 
         private bool ColorExists(Guid id)
         {
-            return _context.Color.Any(e => e.IdСolor == id);
+            return _context.Color.Any(e => e.IdColor == id);
         }
     }
 }

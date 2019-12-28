@@ -316,7 +316,7 @@ namespace SellAuto.Models
 
             modelBuilder.Entity<Color>(entity =>
             {
-                entity.HasKey(e => e.IdСolor)
+                entity.HasKey(e => e.IdColor)
                     .HasName("Color_pkey");
 
                 entity.ToTable("color");
@@ -327,7 +327,7 @@ namespace SellAuto.Models
                     .HasName("Color_Name_key")
                     .IsUnique();
 
-                entity.Property(e => e.IdСolor)
+                entity.Property(e => e.IdColor)
                     .HasColumnName("id_сolor")
                     .HasDefaultValueSql("(md5(((random())::text || (clock_timestamp())::text)))::uuid")
                     .HasComment("Уникальный идентификатор таблицы Mark");

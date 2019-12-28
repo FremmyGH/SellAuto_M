@@ -10,7 +10,7 @@ namespace SellAuto.Models
             Ad = new HashSet<Ad>();
         }
 
-        public Guid IdСolor { get; set; }
+        public Guid IdColor { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Ad> Ad { get; set; }

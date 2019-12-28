@@ -61,7 +61,6 @@ export class AddAd extends Component {
                         <p className="margin-top-20">Номер СТС (СОР)</p>
                         <input className="text-indent bgc-gray width-input border-r-inp" name="sts"/>
                         <p className="margin-top-20">Марка *</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idMark"}
@@ -70,9 +69,7 @@ export class AddAd extends Component {
                                 this.state.selectedMark = value
                             }
                         />
-                        {/*<input className="text-indent bgc-gray width-input margin-bottom-20 border-r-inp" name="carMark" />*/}
                         <p className="margin-top-20">Модель *</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idModel"}
@@ -82,7 +79,6 @@ export class AddAd extends Component {
                             }
                         />
                         <p className="margin-top-20">Руль *</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idSteeringWheel"}
@@ -94,7 +90,6 @@ export class AddAd extends Component {
                         <p className="margin-top-20">Год выпуска</p>
                         <input className="text-indent bgc-gray width-input border-r-inp" name="yearPublish"/>
                         <p className="margin-top-20">Тип кузова *</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idTypeCarBody"}
@@ -104,7 +99,6 @@ export class AddAd extends Component {
                             }
                         />
                         <p className="margin-top-20">Привод *</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idDrive"}
@@ -114,7 +108,6 @@ export class AddAd extends Component {
                             }
                         />
                         <p className="margin-top-20">КПП *</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idKpp"}
@@ -128,7 +121,6 @@ export class AddAd extends Component {
                         <p className="margin-top-20">Мощность</p>
                         <input className="text-indent bgc-gray width-input border-r-inp" name="power"/>
                         <p className="margin-top-20">Цвет *</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idColor"}
@@ -138,7 +130,6 @@ export class AddAd extends Component {
                             }
                         />
                         <p className="margin-top-20">Статус*</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idStatus"}
@@ -152,7 +143,6 @@ export class AddAd extends Component {
                         <p className="margin-top-20">Цена</p>
                         <input className="text-indent bgc-gray width-input border-r-inp" name="price"/>
                         <p className="margin-top-20">Город *</p>
-                        {/*тут будет селект*/}
                         <Select
                             labelField="name"
                             valueField={"idCity"}
@@ -194,6 +184,7 @@ export class AddAd extends Component {
     // 0b7c9b2a-13a0-e5b4-2675-c02d0c9a286b
     FuncSave(event) {
         event.preventDefault();
+        console.log(this.state.selectedColor[0].idColor);
         let data = JSON.stringify({
             vin: event.target.elements.vin.value,
             sts: event.target.elements.sts.value,
@@ -207,12 +198,13 @@ export class AddAd extends Component {
             kppId: this.state.selectedKpp[0].idKpp,
             volume: event.target.elements.volume.value,
             power: event.target.elements.power.value,
-            colorID:this.state.selectedColor[0].idColor,
+            colorId: this.state.selectedColor[0].idColor,
             description: event.target.description.value,
             price: event.target.price.value,
             cityId:  this.state.selectedCity[0].idCity,
             phone1: event.target.elements.phone1.value,
-            userId:  this.state.currentUser.idUser
+            userId: this.state.currentUser.idUser,
+            photoFile: "./images/Civic.jpg"
             });
         console.log(data);
         fetch('api/Ads', {
